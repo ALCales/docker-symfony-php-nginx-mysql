@@ -25,6 +25,9 @@ RUN docker-php-ext-install \
 # Xdebug
 RUN pecl install xdebug && docker-php-ext-enable xdebug
 
+# Alias
+RUN echo 'alias sf="php bin/console"' >> ~/.bashrc
+
 WORKDIR /var/www/symfony
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
