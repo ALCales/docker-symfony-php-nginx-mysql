@@ -1,32 +1,35 @@
 
 # Docker + PHP 8.1 + Xdebug 3 + MySQL 8 + Nginx 1.21 + Symfony Boilerplate 🐳
-___
+
 ## Description
 
-This is a basic stack for running Symfony into Docker containers.
+This is a basic stack for **create y running Symfony project** into Docker containers.
 Here are the docker-compose built images:
 
 - `nginx`, acting as the webserver v1.21.
-- `php`, the PHP-FPM container with the 8.0 version of PHP.
+- `php`, the PHP-FPM container with the 8.1 version of PHP. Xdebug is available by default.
 - `mysql` which is the MySQL database container with a **MySQL 8.0** image.
 
 ## Installation
 
-1. Clone this repository
+### Docker containers
 
-2. Edit enviroment variable in ``.env`` file
+1. Clone this repository
+2. Go inside folder `./docker`
+3. Edit environment variables in ``.env`` file
    1. The value of the variable `NGINX_SERVER_NAME` is the `server_name` used in NGINX.
    
-
-4. Go inside folder `./docker` and start containers.
+4. Build/run containers.
    ```
-   docker compose up -d build
+   docker-compose build
+   docker compose up -d
    ```
-5. You should work inside the `php` container.
+### Symfony project
+1. You should work inside the `php` container.
    ```
-   docker compose exec php sh
+   docker compose exec php bash
    ```
-6. Check requirements for a Symfony application
+2. Check requirements for a Symfony application
    ```
    symfony check:requirements
    ```
@@ -35,10 +38,13 @@ Here are the docker-compose built images:
    [OK]                                             
    Your system is ready to run Symfony projects
    ```
-7. Create a new Symfony project
+3. Create a new Symfony project
    ```
    symfony new .
    ```
+You Symfony project will be installed in ``/app`` folder. Now you can access it from the browser through the domain that you have specified in the `NGINX_SERVER_NAME` variable of the `.env` file.
+
+![alt text](https://alcales.com/wp-content/uploads/2022/01/2022-01-16-19_05_34-Welcome-to-Symfony-Brave.png)
 
 ## Xdebug
 Available by default. Configure `/docker/php/xdebug.ini`
