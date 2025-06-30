@@ -26,7 +26,7 @@ Project (/var/www/)
 ### 🚀 Option 1: Quick Start (Recommended)
 
 1. Clone this repository.
-2. (Optional) Customize your local domain by editing the variable `NGINX_SERVER_NAME` in [`docker/.env`](docker/.env:11) **before** running the setup.
+2. (Optional) Customize your local domain by editing the variable `NGINX_SERVER_NAME` in [`docker/.env`](docker/.env#L11) **before** running the setup.
 3. From the project root, run:
    ```
    chmod +x setup.sh
